@@ -231,6 +231,7 @@ window.conbingo = new (function() {
         var colId = parseInt(e.getAttribute("data-col"));
         var parentEl;
 
+        // hacky since can't just re-render; otherwise no animations
         if (e.tagName == "SPAN") {
             parentEl = e.parentNode.parentNode;
         }
@@ -244,6 +245,41 @@ window.conbingo = new (function() {
         } else {
             board[rowId][colId].marked = true;
             parentEl.setAttribute("data-marked", "true");
+        }
+
+        // bingo hack
+        var els = document.getElementsByClassName("bingo-item-outer");
+
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            parentEl = el.parentNode;
+            var rowId = parseInt(el.getAttribute("data-row"));
+            var colId = parseInt(el.getAttribute("data-col"));
+
+            if (rowHasBingo(rowId)) {
+                parentEl.setAttribute("data-row-bingo", "true");
+            } else {
+                parentEl.setAttribute("data-row-bingo", "false");
+            }
+
+            if (colHasBingo(colId)) {
+                parentEl.setAttribute("data-col-bingo", "true");
+            } else {
+                parentEl.setAttribute("data-col-bingo", "false");
+            }
+
+            if (rowId == colId && diag1HasBingo()) {
+                parentEl.setAttribute("data-diag1-bingo", "true");
+            } else {
+                parentEl.setAttribute("data-diag1-bingo", "false");
+            }
+
+            if (rowId == 4 - colId && diag2HasBingo()) {
+                parentEl.setAttribute("data-diag2-bingo", "true");
+            } else {
+                parentEl.setAttribute("data-diag2-bingo", "false");
+            }
+
         }
 
         //renderBoard();
