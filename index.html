@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Con Bingo</title>
+        <link href="css/conbingo.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">B</th>
+                    <th scope="col">I</th>
+                    <th scope="col">N</th>
+                    <th scope="col">G</th>
+                    <th scope="col">O</th>
+                </tr>
+            </thead>
+            <tbody class="bingo-body">
+                <tr>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                </tr>
+                <tr>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                </tr>
+                <tr>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                </tr>
+                <tr>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                </tr>
+                <tr>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                    <td><div><div><p></p></div></div></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script type="text/template" id="bingo-row-template">
+<tr>
+    <%= columns %>
+</tr>
+        </script>
+        <script type="text/template" id="bingo-item-template">
+<td>
+    <div
+        data-row-bingo="<%- rowBingo %>"
+        data-col-bingo="<%- colBingo %>"
+        data-diag1-bingo="<%- diag1Bingo %>"
+        data-diag2-bingo="<%- diag2Bingo %>"
+        >
+        <div
+            data-row="<%- rowId %>"
+            data-col="<%- colId %>"
+            data-marked="<%- marked %>"
+            >
+            <p
+                data-row="<%- rowId %>"
+                data-col="<%- colId %>"
+                data-marked="<%- marked %>"
+                class="bingo-item"
+                >
+                <span
+                    data-row="<%- rowId %>"
+                    data-col="<%- colId %>"
+                    data-marked="<%- marked %>"
+                    class="bingo-item"
+                >
+                    <%- text %>
+                </span>
+            </p>
+        </div>
+    </div>
+</td>
+        </script>
+
+        <script src="js/underscore-min.js"></script>
+        <script src="js/conbingo.js"></script>
+
+        <script>
+document.addEventListener("DOMContentLoaded", function() {
+    window.conbingo.loadBingo(["general"]);
+});
+        </script>
+    </body>
+</html>

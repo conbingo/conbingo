@@ -1,0 +1,68 @@
+
+body {
+    font-family: "Helvetica", sans-serif;
+    color: #333;
+}
+
+table {
+    margin: auto;
+}
+
+th {
+    font-size: 30px;
+}
+
+.bingo-body td {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* div for lines background */
+.bingo-body td div {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* div for margin, border, stamp background */
+.bingo-body td div div {
+    margin: 1px;
+    border: 1px solid #ddd;
+    background-image: url("../img/paw.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bingo-body td div div[data-marked="false"] {
+    background: none;
+    background-position: center center;
+    background-size: 100px 100px;
+}
+
+.bingo-body td div div[data-marked="true"] {
+    background-size: 60px 60px;
+    transition: all 0.1s linear;
+}
+
+/* paragraph for centered/middle text */
+.bingo-body td div div p {
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+
+    text-align: center;
+}
+
+/* span for paragraph*/
+.bingo-body td div div p span {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 4px;
+    font-size: 15px;
+
+    text-shadow: -1px 0px #fff, 0px 1px #fff, 1px 0px #fff, 0px -1px #fff;
+}
