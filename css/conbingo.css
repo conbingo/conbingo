@@ -27,7 +27,6 @@ th {
 .bingo-body td div div {
     margin: 1px;
     border: 1px solid #ddd;
-    background-image: url("../img/paw.png");
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -39,6 +38,7 @@ th {
 }
 
 .bingo-body td div div[data-marked="true"] {
+    background-image: url("../img/paw.png");
     background-size: 60px 60px;
     transition: all 0.1s linear;
 }
